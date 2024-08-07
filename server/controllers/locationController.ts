@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { addLocation, deleteLocation, editLocation, getAllLocations} from '../models/locationModel';
+import { addLocation, deleteLocation, getAllLocations, checkCity} from '../models/locationModel';
 import Location from '../interfaces/location';
 
 export default {
@@ -22,17 +22,7 @@ export default {
       res.status(500).json({ message: 'Failed to retrieve locations', error });
     }
   },
-  editLocation: async (req: Request, res: Response): Promise<void> => {
-    try {
-      const { id } = req.params;
-      const location: Location = req.body;
-      const result = await editLocation(Number(id), location);
-      res.status(200).json({ message: 'Location updated successfully', data: result });
-    } catch (error) {
-      res.status(500).json({ message: 'Failed to update location', error });
-    }
-  },
-  
+
   deleteLocation: async (req: Request, res: Response): Promise<void> => {
     try {
       const { id } = req.params;
@@ -40,6 +30,16 @@ export default {
       res.status(200).json({ message: 'Location deleted successfully', data: result });
     } catch (error) {
       res.status(500).json({ message: 'Failed to delete location', error });
+    }
+  },
+
+  checkCity: async (req: Request, res: Response): Promise<void> => {
+    try {
+      const { city } = req.body;
+      const exists = await checkCity(city);
+      res.status(200).json({ exists });
+    } catch (error) {
+      res.status(500).json({ message: 'Failed to check city', error });
     }
   }
 }

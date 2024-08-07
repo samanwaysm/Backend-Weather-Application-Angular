@@ -45,5 +45,28 @@ export default {
                 message: 'Internal server error'
             });
         }
-    }
+    },
+    verifyAdmin: async (req: Request, res: Response): Promise<void> => {
+        try {
+            const token: string = req.header('Authorization')!;
+            const decoded = jwt.verify(token, process.env.JWTSecrectKey!) as JwtPayload;
+            if(decoded.type !== 'Admin'){
+                res.status(401).json({
+                    message: "Invalid token",
+                    invalidToken: true
+                });
+                return;
+            }
+            res.status(200).json({
+                message: "Valid token",
+                invalidToken: false
+            });
+        } catch (err:any) {
+            console.error(err);
+            res.status(401).json({
+                message: "Invalid token",
+                invalidToken: true
+            });
+        }
+    },
 }
