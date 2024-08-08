@@ -25,3 +25,13 @@ DATABASE_NAME=yourdatabase
 JWT_SECRET=yourjwtsecret
 
 ```
+Replace the placeholders with your actual database credentials and JWT secret.
+
+##Database Setup
+ **Create a MySQL database:**
+
+Use the MySQL command line or a tool like phpMyAdmin to create a new database.
+```
+CREATE DATABASE yourdatabase;
+```
+Update your .env file with the database connection details.
