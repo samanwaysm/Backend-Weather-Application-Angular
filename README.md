@@ -39,7 +39,7 @@ Update your .env file with the database connection details.
 ##Running the Server
 **Start the development server:**
 
-Run npm run dev to start the server using ts-node-dev.
+Run `npm run dev` to start the server using ts-node-dev.
 ```
 npm run dev
 ```
