@@ -17,7 +17,7 @@ npm i
 ## Environment Configuration
 Create a .env file in the root directory of the project. Here is an example configuration:
 ```
-PORT=3000
+PORT=4000
 DATABASE_HOST=localhost
 DATABASE_USER=root
 DATABASE_PASSWORD=yourpassword
@@ -35,3 +35,12 @@ Use the MySQL command line or a tool like phpMyAdmin to create a new database.
 CREATE DATABASE yourdatabase;
 ```
 Update your .env file with the database connection details.
+
+##Running the Server
+**Start the development server:**
+
+Run npm run dev to start the server using ts-node-dev.
+```
+npm run dev
+```
+Navigate to http://localhost:4000/ to access the server.
