@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
-import { addLocation, deleteLocation, getAllLocations, checkCity} from '../models/locationModel';
-import Location from '../interfaces/location';
+import { addLocation, deleteLocation, getAllLocations, checkCity} from '../dbHelper.js/locationdbHealper';
+import locationType from '../interfaces/locationType';
 
 export default {
   addLocation: async (req: Request, res: Response): Promise<void> => {
     try {
-      const location: Location = req.body;
+      const location: locationType = req.body;
       const result = await addLocation(location);
       res.status(201).json({ message: 'Location added successfully', data: result });
     } catch (error) {

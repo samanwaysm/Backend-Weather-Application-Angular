@@ -1,4 +1,4 @@
-export default interface Location {
+export default interface locationType {
     id?: number; 
     country: string;
     state: string;

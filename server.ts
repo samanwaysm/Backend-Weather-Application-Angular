@@ -4,8 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import adminRoutes from '../backend/server/routes/adminRoutes'
 import locationRoutes from '../backend/server/routes/locationRoutes';
-import connection from './server/config/connection';
-connection.connect()
+import sequelize from '../backend/server/config/sequelize';
 
 dotenv.config();
 
@@ -23,8 +22,15 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/locations', locationRoutes);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
+
+  try {
+    await sequelize.sync();
+    console.log('Database synchronized successfully.');
+  } catch (error) {
+    console.error('Error synchronizing the database:', error);
+  }
 });
 
 export default app;
