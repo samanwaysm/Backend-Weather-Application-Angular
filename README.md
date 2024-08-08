@@ -9,3 +9,9 @@ This project is a TypeScript-based backend server built with Express and Sequeli
    ```bash
    git clone <repository-url>
    cd <repository-name>
+
+2.Install dependencies:
+
+Run `npm i` to install the project dependencies.
+```bash
+npm i
