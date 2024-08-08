@@ -14,3 +14,14 @@ Run `npm i` to install the project dependencies.
 ```bash
 npm i
 ```
+## Environment Configuration
+Create a .env file in the root directory of the project. Here is an example configuration:
+```
+PORT=3000
+DATABASE_HOST=localhost
+DATABASE_USER=root
+DATABASE_PASSWORD=yourpassword
+DATABASE_NAME=yourdatabase
+JWT_SECRET=yourjwtsecret
+
+```
