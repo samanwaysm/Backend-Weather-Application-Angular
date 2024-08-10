@@ -17,6 +17,8 @@ npm i
 ## Environment Configuration
 Create a .env file in the root directory of the project. Here is an example configuration:
 ```
+ADMIN_EMAIL = 'admin@gmail.com'
+ADMIN_PASSWORD = password
 PORT=4000
 DATABASE_HOST=localhost
 DATABASE_USER=root
